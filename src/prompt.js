@@ -37,7 +37,11 @@ function openPrompt(options) {
 
   let box = wrapper.getBoundingClientRect()
   wrapper.style.top = ((window.innerHeight - box.height) / 2) + "px"
+  if (options.top) wrapper.style.top = options.top + "px"
+  if (options.centerTop) wrapper.style.top = (options.centerTop - box.height / 2) + "px"
   wrapper.style.left = ((window.innerWidth - box.width) / 2) + "px"
+  if (options.left) wrapper.style.left = options.left + "px"
+  if (options.centerLeft) wrapper.style.left = (options.centerLeft - box.width / 2) + "px"
 
   let submit = () => {
     let params = getValues(options.fields, domFields)
