@@ -104,13 +104,15 @@ function linkItem(markType) {
   return markItem(markType, {
     title: "Add or remove link",
     icon: icons.link,
-    run(state, dispatch, view) {
+    run(state, dispatch, view, e) {
       if (markActive(state, markType)) {
         toggleMark(markType)(state, dispatch)
         return true
       }
       openPrompt({
         title: "Create a link",
+        top: e.clientY+20,
+        centerLeft: e.clientX,
         fields: {
           href: new TextField({
             label: "Link target",
